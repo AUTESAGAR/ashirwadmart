@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Cakes - SweetDelight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fffafc;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: #ff69b4;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .page-title {
+      background-color: #ffe4ec;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .page-title h2 {
+      font-size: 32px;
+      color: #ff1493;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h4 {
+      margin: 15px 0 5px;
+      color: #d63384;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #000;
+      margin-top: 5px;
+    }
+
+    .btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 8px 20px;
+      background-color: #ff1493;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .page-title h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🎂 SweetDelight</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.html">Order</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <h2>Our Cakes</h2>
+    <p>Freshly Baked • Custom Designs • Same Day Delivery</p>
+  </div>
+
+  <!-- Product Listing -->
+  <section class="products">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0" alt="Chocolate Cake">
+      <h4>Chocolate Heaven</h4>
+      <p>Rich chocolate layers with choco ganache.</p>
+      <p class="price">₹499</p>
+      <a href="order.html" class="btn">Order Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1615474702463-f6e3bb8268e9" alt="Vanilla Cake">
+      <h4>Vanilla Classic</h4>
+      <p>Simple, elegant, and fluffy vanilla cake.</p>
+      <p class="price">₹399</p>
+      <a href="login.html" class="btn">Order Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1623223053927-bb4164d6b43c" alt="Red Velvet Cake">
+      <h4>Red Velvet Love</h4>
+      <p>Perfect for anniversaries & love celebrations.</p>
+      <p class="price">₹599</p>
+      <a href="login.html" class="btn">Order Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee" alt="Fruit Cake">
+      <h4>Fresh Fruit Delight</h4>
+      <p>Fresh seasonal fruits over soft sponge base.</p>
+      <p class="price">₹549</p>
+      <a href="login.html" class="btn">Order Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1599785209790-e4ff4cc5e9a4" alt="Coffee Cake">
+      <h4>Mocha Madness</h4>
+      <p>For coffee and cake lovers — best of both!</p>
+      <p class="price">₹449</p>
+      <a href="login.html" class="btn">Order Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1614707267533-c2c1cc2a62cc" alt="Rainbow Cake">
+      <h4>Rainbow Blast</h4>
+      <p>Colorful layers and cream — kids’ favorite!</p>
+      <p class="price">₹499</p>
+      <a href="login.html" class="btn">Order Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SweetDelight Cakes | Designed by Sagar</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | SweetDelight Cakes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background-color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .register-box h2 {
+      margin-bottom: 10px;
+      color: #d63384;
+    }
+
+    .input-field {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .input-field label {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: bold;
+    }
+
+    .input-field input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .btn {
+      width: 100%;
+      background-color: #ff1493;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c2185b;
+    }
+
+    .extra {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .extra a {
+      color: #d63384;
+      text-decoration: none;
+    }
+
+    .extra a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>Create Account to SweetDelight</h2>
+    <form action="home.html" method="post">
+      <div class="input-field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+      </div>
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="input-field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="1234567890" required>
+      </div>
+      <div class="input-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+      </div>
+      <div class="input-field">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <div class="extra">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

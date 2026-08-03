@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SweetDelight - Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8fa;
+      padding: 20px;
+    }
+
+    header, footer {
+      background: #ff69b4;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #ffd6e8;
+      border-radius: 8px;
+      width: 200px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 8px;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #d63384;
+    }
+
+    .product button {
+      background: #ff1493;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .cart {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #ffe4ec;
+      color: #ff1493;
+    }
+
+    .remove-btn {
+      background: #ff1493;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .checkout-btn {
+      background: #d63384;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      float: right;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎂 SweetDelight - Cart</h1>
+</header>
+
+<section class="product-list">  
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1586985287742-3be8fba5ec95" alt="Chocolate Cake">
+    <h3>Chocolate Overload - ₹499</h3>
+    <button onclick="addToCart('Chocolate Overload', 499)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1599785209790-e4ff4cc5e9a4" alt="Rainbow Cake">
+    <h3>Rainbow Blast - ₹549</h3>
+    <button onclick="addToCart('Rainbow Blast', 549)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1505253210343-d4fd5a52bb76" alt="Red Velvet Cake">
+    <h3>Red Velvet - ₹599</h3>
+    <button onclick="addToCart('Red Velvet', 599)">Add to Cart</button>
+  </div>
+</section>
+
+
+<footer>
+  <p>&copy; 2025 SweetDelight Cakes | Designed by Sagar</p>
+</footer>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, price) {
+    const itemIndex = cart.findIndex(item => item.name === name);
+    if (itemIndex !== -1) {
+      cart[itemIndex].qty++;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+    updateCartUI();
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const cartBody = document.getElementById('cart-body');
+    const cartTotal = document.getElementById('cart-total');
+    cartBody.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.qty * item.price;
+      total += itemTotal;
+
+      const row = `<tr>
+        <td>${item.name}</td>
+        <td>₹${item.price}</td>
+        <td>${item.qty}</td>
+        <td>₹${itemTotal}</td>
+        <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+      </tr>`;
+
+      cartBody.innerHTML += row;
+    });
+
+    cartTotal.innerText = `Total: ₹${total}`;
+  }
+</script>
+
+</body>
+</html>

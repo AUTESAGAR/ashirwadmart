@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SweetDelight - Online Cake Order</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family:'Segoe UI', sans-serif; background:#fff0f5; color:#333;}
+
+    header {background:#ff69b4; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; color:white;}
+    header h1 {font-size:24px;}
+    nav a {margin-left:20px; font-weight:bold; color:white; text-decoration:none;}
+
+    .hero {background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587'); background-size:cover; background-position:center; height:400px; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding:20px;}
+    .hero h2 {font-size:40px; background-color:rgba(0,0,0,0.5); padding:15px 25px; border-radius:10px;}
+
+    .section {padding:40px 20px; max-width:1200px; margin:auto;}
+    .section h3 {text-align:center; margin-bottom:30px; font-size:28px; color:#ff1493;}
+
+    .cakes {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;}
+    .cake-card {background:white; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); overflow:hidden; text-align:center; padding:15px;}
+    .cake-card img {width:100%; height:180px; object-fit:cover; border-radius:8px;}
+    .cake-card h4 {margin:15px 0 10px; color:#d63384;}
+    .cake-card p {color:#666; font-size:14px;}
+    .btn {display:inline-block; margin:5px; padding:8px 15px; background:#ff1493; color:white; border-radius:5px; font-weight:bold; cursor:pointer; border:none;}
+    .btn.buy {background:#28a745;}
+
+    footer {background:#ff69b4; color:white; text-align:center; padding:20px; margin-top:40px;}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🎂 SweetDelight</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="order.html">Order</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart 🛒(<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Delicious Cakes Delivered at Your Doorstep</h2>
+  </section>
+
+  <!-- Featured Cakes -->
+  <section class="section">
+    <h3>Our Best Sellers</h3>
+    <div class="cakes">
+      <div class="cake-card">
+        <img src="https://images.unsplash.com/photo-1586985287742-3be8fba5ec95" alt="Chocolate Cake">
+        <h4>Chocolate Overload</h4>
+        <p>Rich and creamy chocolate cake for every occasion.</p>
+        <button class="btn" onclick="addToCart('Chocolate Overload', 500)">Add to Cart</button>
+        <a href="login.html" class="btn buy">Buy Now</a>
+      </div>
+      <div class="cake-card">
+        <img src="https://images.unsplash.com/photo-1565958011702-44ac9233c8a8" alt="Strawberry Cake">
+        <h4>Strawberry Dream</h4>
+        <p>Fresh strawberries and cream layered to perfection.</p>
+        <button class="btn" onclick="addToCart('Strawberry Dream', 450)">Add to Cart</button>
+        <a href="login.html" class="btn buy">Buy Now</a>
+      </div>
+      <div class="cake-card">
+        <img src="https://images.unsplash.com/photo-1601979031925-3ccdecd885b1" alt="Rainbow Cake">
+        <h4>Rainbow Surprise</h4>
+        <p>Colorful, fun, and a hit at birthday parties!</p>
+        <button class="btn" onclick="addToCart('Rainbow Surprise', 600)">Add to Cart</button>
+        <a href="login.html" class="btn buy">Buy Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SweetDelight Cakes | Designed by Sagar</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+    }
+
+    function addToCart(name, price) {
+      let cart = getCart();
+      let item = cart.find(c => c.name === name);
+      if(item){
+        item.qty += 1;
+      } else {
+        cart.push({name, price, qty:1});
+      }
+      saveCart(cart);
+      alert(name + " added to cart!");
+    }
+
+    function updateCartCount() {
+      let cart = getCart();
+      let count = cart.reduce((sum,item)=> sum+item.qty, 0);
+      document.getElementById("cart-count").textContent = count;
+    }
+
+    // Initialize
+    updateCartCount();
+  </script>
+</body>
+</html>
